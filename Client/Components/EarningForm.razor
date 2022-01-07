@@ -1,9 +1,13 @@
-﻿<div id="earnings-container" class="card">
+﻿@using BlazorFinance.Shared
+
+<div id="earnings-container" class="card">
     <div class="card-header">
         Add an earning
     </div>
     <div class="card-body">
         <EditForm Model="@earning" OnValidSubmit="@HandleValidSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
             <div class="form-group">
                 <label for="dateInput">Date</label>
                 <InputDate class="form-control" id="dateInput" @bind-Value="earning.Date" />
@@ -36,7 +40,7 @@
 
 @code {
     private EarningModel earning = new EarningModel { Date = DateTime.Today };
-    private string success = "hey";
+    private string success = "";
 
     private void HandleValidSubmit() {
         success = "success";
