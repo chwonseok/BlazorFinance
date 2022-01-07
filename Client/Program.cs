@@ -23,3 +23,6 @@ namespace BlazorFinance.Client
         }
     }
 }
+
+// Webassembly host builder factory
+// public static main method section!
